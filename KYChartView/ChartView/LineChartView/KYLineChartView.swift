@@ -66,7 +66,7 @@ class KYLineChartView: KYChartBaseView {
 
     private func calculateMinMaxX() {
         _minX = 0
-        _maxX = config.spacing * Double(chartData?.data.count ?? 0) - bounds.width
+        _maxX = config.spacing * (Double(chartData?.data.count ?? 0) - 1) - bounds.width
     }
     
     private func calculateMinMaxY() {
@@ -75,7 +75,7 @@ class KYLineChartView: KYChartBaseView {
     }
 
     override func notifyFrameChanged() {
-//        calculateMinMaxX()
+        calculateMinMaxX()
         calculateVisibleRange()
     }
 

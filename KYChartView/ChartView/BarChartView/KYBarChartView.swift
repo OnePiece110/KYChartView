@@ -138,7 +138,8 @@ class KYBarChartView: KYChartBaseView {
 
     private func calculateMinMaxX() {
         _minX = 0
-        _maxX = config.thunkWidth * Double(chartData?.data.count ?? 0) - bounds.width
+        // 到了最后不需要有间距,所以需要减去
+        _maxX = config.thunkWidth * Double(chartData?.data.count ?? 0) - bounds.width - config.spacing
     }
 
     private func calculateMinMaxY() {
