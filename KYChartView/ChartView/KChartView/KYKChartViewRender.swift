@@ -50,7 +50,7 @@ class KYKChartViewRender {
 
         let barWidth = dataProvider.config.barWidth
         let shadowWidth = dataProvider.config.shadowLineWidth
-        let barX = dataProvider.config.thunkWidth * Double(index)
+        let barX = dataProvider.config.thunkWidth * Double(index) - dataProvider.contentOffset.x
         let lineX = barX + (barWidth - shadowWidth) / 2
 
         let barRect = rect(for: (data.open, data.close),

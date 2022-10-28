@@ -37,12 +37,14 @@ class KYKChartView: KYChartBaseView {
     private(set) var maxX: Double = 0
     private(set) var minY: Double = 0
     private(set) var maxY: Double = 0
+    private var lastContentOffset: CGPoint = .zero
     
     init(config: KYKLineChartConfig) {
         self.config = config
         super.init()
         self.render = KYKChartViewRender(dataProvider: self)
         setup()
+        layer.masksToBounds = true
     }
 
     required init?(coder: NSCoder) {
@@ -67,6 +69,20 @@ class KYKChartView: KYChartBaseView {
         calculateVisibleRange()
     }
 
+    override func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
+        if recognizer.state == .changed {
+            let originalTranslation = recognizer.translation(in: self)
+            contentOffset.x = -originalTranslation.x + lastContentOffset.x
+            if contentOffset.x <= minX {
+                contentOffset.x = minX
+            } else if contentOffset.x >= maxX {
+                contentOffset.x = maxX
+            }
+        } else if recognizer.state == .ended {
+            lastContentOffset = contentOffset
+        }
+    }
+
     private func calculateMinMaxX() {
         minX = 0
         // 到了最后不需要有间距,所以需要减去
@@ -87,7 +103,7 @@ class KYKChartView: KYChartBaseView {
         let minX = contentOffset.x
         let maxX = minX + bounds.width
         let minIndex = min(chartData.data.count, max(0, Int(minX / config.thunkWidth)))
-        let maxIndex = max(0, min(chartData.data.count, Int(floor(maxX / config.thunkWidth))))
+        let maxIndex = max(0, min(chartData.data.count, Int(ceil(maxX / config.thunkWidth)) + 1))
         self.visibleRange = minIndex ..< maxIndex
     }
 
