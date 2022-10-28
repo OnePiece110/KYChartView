@@ -18,14 +18,10 @@ class KYLineChartView: KYChartBaseView {
         }
     }
 
-    var visibleRange: Range<Int> = .none {
+    private(set) var visibleRange: Range<Int> = .none {
         didSet {
             setNeedsDisplay()
         }
-    }
-
-    var maxY: Double {
-        return _maxY
     }
 
     let config: KYLineChartConfig
@@ -38,10 +34,10 @@ class KYLineChartView: KYChartBaseView {
 
     private var render: KYLineChartViewRender?
     private var lastContentOffset: CGPoint = .zero
-    private var _minX: Double = 0
-    private var _maxX: Double = 0
-    private var _minY: Double = 0
-    private var _maxY: Double = 0
+    private(set) var minX: Double = 0
+    private(set) var maxX: Double = 0
+    private(set) var minY: Double = 0
+    private(set) var maxY: Double = 0
     private var cancelAbles = Set<AnyCancellable>()
 
     init(config: KYLineChartConfig) {
@@ -65,13 +61,14 @@ class KYLineChartView: KYChartBaseView {
     }
 
     private func calculateMinMaxX() {
-        _minX = 0
-        _maxX = config.spacing * (Double(chartData?.data.count ?? 0) - 1) - bounds.width
+        minX = 0
+        maxX = config.spacing * (Double(chartData?.data.count ?? 0) - 1) - bounds.width
     }
     
     private func calculateMinMaxY() {
-        _minY = 0
-        _maxY = ceil(chartData?.data.max(by: { $0.yVal < $1.yVal })?.yVal ?? 0)
+        let tmpMinY = ceil(chartData?.data.max(by: { $0.yVal > $1.yVal })?.yVal ?? 0)
+        minY = tmpMinY < 0 ? tmpMinY : 0
+        maxY = ceil(chartData?.data.max(by: { $0.yVal < $1.yVal })?.yVal ?? 0)
     }
 
     override func notifyFrameChanged() {
@@ -83,10 +80,10 @@ class KYLineChartView: KYChartBaseView {
         if recognizer.state == .changed {
             let originalTranslation = recognizer.translation(in: self)
             contentOffset.x = -originalTranslation.x + lastContentOffset.x
-            if contentOffset.x <= _minX {
-                contentOffset.x = _minX
-            } else if contentOffset.x >= _maxX {
-                contentOffset.x = _maxX
+            if contentOffset.x <= minX {
+                contentOffset.x = minX
+            } else if contentOffset.x >= maxX {
+                contentOffset.x = maxX
             }
         } else if recognizer.state == .ended {
             lastContentOffset = contentOffset

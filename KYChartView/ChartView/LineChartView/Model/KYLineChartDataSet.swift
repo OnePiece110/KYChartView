@@ -7,7 +7,7 @@
 
 import UIKit
 
-class KYLineChartDataSet: NSObject {
+class KYLineChartDataSet {
     var data = [KYLineChartData]()
 }
 

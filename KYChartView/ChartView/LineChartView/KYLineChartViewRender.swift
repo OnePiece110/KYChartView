@@ -23,7 +23,7 @@ class KYLineChartViewRender {
 
         for index in dataProvider.visibleRange {
             let data = chartData.data[index]
-            let startPoint = CGPoint(x: Double(index) * dataProvider.config.spacing - dataProvider.contentOffset.x, y: data.yVal / dataProvider.maxY * dataProvider.bounds.height)
+            let startPoint = CGPoint(x: Double(index) * dataProvider.config.spacing - dataProvider.contentOffset.x, y: (data.yVal - dataProvider.minY) / (dataProvider.maxY - dataProvider.minY) * dataProvider.bounds.height)
 
             if isFirstPoint {
                 path.move(to: startPoint)

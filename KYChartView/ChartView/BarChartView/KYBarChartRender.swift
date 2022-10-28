@@ -27,7 +27,7 @@ class KYBarChartRender {
             let data = chartData.data[index]
             if !data.isHighlightEnable { continue }
 
-            let height = data.yVal / dataProvider.maxY * Double(dataProvider.bounds.height)
+            let height = (data.yVal - dataProvider.minY) / (dataProvider.maxY - dataProvider.minY) * Double(dataProvider.bounds.height)
             y = dataProvider.bounds.height - height
             x = dataProvider.config.thunkWidth * Double(index) - dataProvider.contentOffset.x
 
