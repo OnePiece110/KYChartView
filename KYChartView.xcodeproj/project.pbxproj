@@ -7,31 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04E007A82AE7A84400D555AB /* KYChartRenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E007A72AE7A84400D555AB /* KYChartRenderView.swift */; };
+		04E007AA2AE7AF0400D555AB /* KYChartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E007A92AE7AF0400D555AB /* KYChartDelegate.swift */; };
+		04E007AC2AE7B0E400D555AB /* KYChartConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E007AB2AE7B0E400D555AB /* KYChartConfiguration.swift */; };
+		04E007AE2AE7B97900D555AB /* KYLongPressIntercation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E007AD2AE7B97900D555AB /* KYLongPressIntercation.swift */; };
+		04E007B02AE7B9A300D555AB /* KYBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E007AF2AE7B9A300D555AB /* KYBinding.swift */; };
+		04E007B22AE7B9DA00D555AB /* KYTapInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E007B12AE7B9DA00D555AB /* KYTapInteraction.swift */; };
+		04E007B42AE7BAE000D555AB /* KYChartLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E007B32AE7BAE000D555AB /* KYChartLayout.swift */; };
+		04E007B62AE7BE4800D555AB /* KYChartGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E007B52AE7BE4800D555AB /* KYChartGroup.swift */; };
+		04E007B92AE7C07F00D555AB /* KYChartRenderProtcol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E007B82AE7C07F00D555AB /* KYChartRenderProtcol.swift */; };
+		04E007BB2AE7C18C00D555AB /* KYChartContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E007BA2AE7C18C00D555AB /* KYChartContext.swift */; };
+		04E007BE2AE7CB0F00D555AB /* KYLineChartRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E007BD2AE7CB0F00D555AB /* KYLineChartRender.swift */; };
+		04E007C02AE7CF0500D555AB /* KYChartQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E007BF2AE7CF0500D555AB /* KYChartQuote.swift */; };
+		04E007C22AE8AAD800D555AB /* CGMathExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E007C12AE8AAD800D555AB /* CGMathExtension.swift */; };
+		04FADDA32AE8C58E00D02BB6 /* KYGridChartRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FADDA22AE8C58E00D02BB6 /* KYGridChartRender.swift */; };
+		04FADDA52AE8C5B100D02BB6 /* CGPathExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FADDA42AE8C5B100D02BB6 /* CGPathExtension.swift */; };
 		3D41CA8C28F511E500B4830B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41CA8B28F511E500B4830B /* AppDelegate.swift */; };
 		3D41CA8E28F511E500B4830B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41CA8D28F511E500B4830B /* SceneDelegate.swift */; };
 		3D41CA9028F511E500B4830B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41CA8F28F511E500B4830B /* ViewController.swift */; };
 		3D41CA9328F511E500B4830B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D41CA9128F511E500B4830B /* Main.storyboard */; };
 		3D41CA9528F511E600B4830B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D41CA9428F511E600B4830B /* Assets.xcassets */; };
 		3D41CA9828F511E600B4830B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D41CA9628F511E600B4830B /* LaunchScreen.storyboard */; };
-		3D41CAA028F511F800B4830B /* KYBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41CA9F28F511F800B4830B /* KYBarChartView.swift */; };
-		3D41CAA328F512A000B4830B /* KYBarChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41CAA228F512A000B4830B /* KYBarChartDataSet.swift */; };
-		3D41CAA528F5131C00B4830B /* KYBarChartConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41CAA428F5131C00B4830B /* KYBarChartConfig.swift */; };
-		3D41CAA828F515C700B4830B /* KYBarChartHighLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41CAA728F515C700B4830B /* KYBarChartHighLight.swift */; };
 		3D41CAAB28F5163F00B4830B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41CAAA28F5163F00B4830B /* Extension.swift */; };
-		3D41CAAD28F5177E00B4830B /* KYBarChartRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41CAAC28F5177E00B4830B /* KYBarChartRender.swift */; };
-		3D41CAB328F64F5500B4830B /* KYLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41CAB228F64F5500B4830B /* KYLineChartView.swift */; };
-		3D41CAB528F65B2C00B4830B /* KYLineChartViewRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41CAB428F65B2C00B4830B /* KYLineChartViewRender.swift */; };
-		3D65C90D290A7EE400963439 /* KYKLineChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D65C90C290A7EE400963439 /* KYKLineChartDataSet.swift */; };
-		3D65C910290B6C7000963439 /* KYKLineChartConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D65C90F290B6C7000963439 /* KYKLineChartConfig.swift */; };
-		3D65C912290B6D7A00963439 /* KYKChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D65C911290B6D7A00963439 /* KYKChartView.swift */; };
-		3D65C914290B6DA700963439 /* KYKChartViewRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D65C913290B6DA700963439 /* KYKChartViewRender.swift */; };
 		3D65C917290B7D0000963439 /* PixelAlign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D65C916290B7D0000963439 /* PixelAlign.swift */; };
-		3D8B1B2A28F6908000207A48 /* KYLineChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B1B2928F6908000207A48 /* KYLineChartDataSet.swift */; };
-		3D8B1B2C28F693D600207A48 /* KYLineChartConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B1B2B28F693D600207A48 /* KYLineChartConfig.swift */; };
 		3D8B1B2F28F6971A00207A48 /* KYChartBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B1B2E28F6971A00207A48 /* KYChartBaseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04E007A72AE7A84400D555AB /* KYChartRenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYChartRenderView.swift; sourceTree = "<group>"; };
+		04E007A92AE7AF0400D555AB /* KYChartDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYChartDelegate.swift; sourceTree = "<group>"; };
+		04E007AB2AE7B0E400D555AB /* KYChartConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYChartConfiguration.swift; sourceTree = "<group>"; };
+		04E007AD2AE7B97900D555AB /* KYLongPressIntercation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYLongPressIntercation.swift; sourceTree = "<group>"; };
+		04E007AF2AE7B9A300D555AB /* KYBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYBinding.swift; sourceTree = "<group>"; };
+		04E007B12AE7B9DA00D555AB /* KYTapInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYTapInteraction.swift; sourceTree = "<group>"; };
+		04E007B32AE7BAE000D555AB /* KYChartLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYChartLayout.swift; sourceTree = "<group>"; };
+		04E007B52AE7BE4800D555AB /* KYChartGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYChartGroup.swift; sourceTree = "<group>"; };
+		04E007B82AE7C07F00D555AB /* KYChartRenderProtcol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYChartRenderProtcol.swift; sourceTree = "<group>"; };
+		04E007BA2AE7C18C00D555AB /* KYChartContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYChartContext.swift; sourceTree = "<group>"; };
+		04E007BD2AE7CB0F00D555AB /* KYLineChartRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYLineChartRender.swift; sourceTree = "<group>"; };
+		04E007BF2AE7CF0500D555AB /* KYChartQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYChartQuote.swift; sourceTree = "<group>"; };
+		04E007C12AE8AAD800D555AB /* CGMathExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGMathExtension.swift; sourceTree = "<group>"; };
+		04FADDA22AE8C58E00D02BB6 /* KYGridChartRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYGridChartRender.swift; sourceTree = "<group>"; };
+		04FADDA42AE8C5B100D02BB6 /* CGPathExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPathExtension.swift; sourceTree = "<group>"; };
 		3D41CA8828F511E500B4830B /* KYChartView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KYChartView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D41CA8B28F511E500B4830B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D41CA8D28F511E500B4830B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,21 +57,8 @@
 		3D41CA9428F511E600B4830B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D41CA9728F511E600B4830B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D41CA9928F511E600B4830B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D41CA9F28F511F800B4830B /* KYBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYBarChartView.swift; sourceTree = "<group>"; };
-		3D41CAA228F512A000B4830B /* KYBarChartDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYBarChartDataSet.swift; sourceTree = "<group>"; };
-		3D41CAA428F5131C00B4830B /* KYBarChartConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYBarChartConfig.swift; sourceTree = "<group>"; };
-		3D41CAA728F515C700B4830B /* KYBarChartHighLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYBarChartHighLight.swift; sourceTree = "<group>"; };
 		3D41CAAA28F5163F00B4830B /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		3D41CAAC28F5177E00B4830B /* KYBarChartRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYBarChartRender.swift; sourceTree = "<group>"; };
-		3D41CAB228F64F5500B4830B /* KYLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYLineChartView.swift; sourceTree = "<group>"; };
-		3D41CAB428F65B2C00B4830B /* KYLineChartViewRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYLineChartViewRender.swift; sourceTree = "<group>"; };
-		3D65C90C290A7EE400963439 /* KYKLineChartDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYKLineChartDataSet.swift; sourceTree = "<group>"; };
-		3D65C90F290B6C7000963439 /* KYKLineChartConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYKLineChartConfig.swift; sourceTree = "<group>"; };
-		3D65C911290B6D7A00963439 /* KYKChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYKChartView.swift; sourceTree = "<group>"; };
-		3D65C913290B6DA700963439 /* KYKChartViewRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYKChartViewRender.swift; sourceTree = "<group>"; };
 		3D65C916290B7D0000963439 /* PixelAlign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelAlign.swift; sourceTree = "<group>"; };
-		3D8B1B2928F6908000207A48 /* KYLineChartDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYLineChartDataSet.swift; sourceTree = "<group>"; };
-		3D8B1B2B28F693D600207A48 /* KYLineChartConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYLineChartConfig.swift; sourceTree = "<group>"; };
 		3D8B1B2E28F6971A00207A48 /* KYChartBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYChartBaseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,6 +73,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04E007B72AE7C01900D555AB /* NewChart */ = {
+			isa = PBXGroup;
+			children = (
+				04E007BC2AE7CAFD00D555AB /* LineChart */,
+				04E007A72AE7A84400D555AB /* KYChartRenderView.swift */,
+				04E007A92AE7AF0400D555AB /* KYChartDelegate.swift */,
+				04E007AB2AE7B0E400D555AB /* KYChartConfiguration.swift */,
+				04E007AD2AE7B97900D555AB /* KYLongPressIntercation.swift */,
+				04E007AF2AE7B9A300D555AB /* KYBinding.swift */,
+				04E007B12AE7B9DA00D555AB /* KYTapInteraction.swift */,
+				04E007B32AE7BAE000D555AB /* KYChartLayout.swift */,
+				04E007B52AE7BE4800D555AB /* KYChartGroup.swift */,
+				04E007B82AE7C07F00D555AB /* KYChartRenderProtcol.swift */,
+				04E007BA2AE7C18C00D555AB /* KYChartContext.swift */,
+				04E007BF2AE7CF0500D555AB /* KYChartQuote.swift */,
+				04E007C12AE8AAD800D555AB /* CGMathExtension.swift */,
+				04FADDA42AE8C5B100D02BB6 /* CGPathExtension.swift */,
+			);
+			path = NewChart;
+			sourceTree = "<group>";
+		};
+		04E007BC2AE7CAFD00D555AB /* LineChart */ = {
+			isa = PBXGroup;
+			children = (
+				04E007BD2AE7CB0F00D555AB /* KYLineChartRender.swift */,
+				04FADDA22AE8C58E00D02BB6 /* KYGridChartRender.swift */,
+			);
+			path = LineChart;
+			sourceTree = "<group>";
+		};
 		3D41CA7F28F511E500B4830B = {
 			isa = PBXGroup;
 			children = (
@@ -104,23 +138,11 @@
 		3D41CAA128F511FE00B4830B /* ChartView */ = {
 			isa = PBXGroup;
 			children = (
+				04E007B72AE7C01900D555AB /* NewChart */,
 				3D65C915290B7CEC00963439 /* Util */,
 				3D8B1B2D28F6970700207A48 /* Base */,
-				3D65C90B290A7E5E00963439 /* KChartView */,
-				3D41CAB128F64F0D00B4830B /* LineChartView */,
-				3D41CAB028F64EFE00B4830B /* BarChartView */,
 			);
 			path = ChartView;
-			sourceTree = "<group>";
-		};
-		3D41CAA628F5154700B4830B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				3D41CAA428F5131C00B4830B /* KYBarChartConfig.swift */,
-				3D41CAA228F512A000B4830B /* KYBarChartDataSet.swift */,
-				3D41CAA728F515C700B4830B /* KYBarChartHighLight.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		3D41CAA928F5163500B4830B /* Extension */ = {
@@ -131,60 +153,12 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		3D41CAB028F64EFE00B4830B /* BarChartView */ = {
-			isa = PBXGroup;
-			children = (
-				3D41CAA628F5154700B4830B /* Model */,
-				3D41CA9F28F511F800B4830B /* KYBarChartView.swift */,
-				3D41CAAC28F5177E00B4830B /* KYBarChartRender.swift */,
-			);
-			path = BarChartView;
-			sourceTree = "<group>";
-		};
-		3D41CAB128F64F0D00B4830B /* LineChartView */ = {
-			isa = PBXGroup;
-			children = (
-				3D8B1B2828F6907400207A48 /* Model */,
-				3D41CAB228F64F5500B4830B /* KYLineChartView.swift */,
-				3D41CAB428F65B2C00B4830B /* KYLineChartViewRender.swift */,
-			);
-			path = LineChartView;
-			sourceTree = "<group>";
-		};
-		3D65C90B290A7E5E00963439 /* KChartView */ = {
-			isa = PBXGroup;
-			children = (
-				3D65C90E290B6C3A00963439 /* Model */,
-				3D65C911290B6D7A00963439 /* KYKChartView.swift */,
-				3D65C913290B6DA700963439 /* KYKChartViewRender.swift */,
-			);
-			path = KChartView;
-			sourceTree = "<group>";
-		};
-		3D65C90E290B6C3A00963439 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				3D65C90C290A7EE400963439 /* KYKLineChartDataSet.swift */,
-				3D65C90F290B6C7000963439 /* KYKLineChartConfig.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		3D65C915290B7CEC00963439 /* Util */ = {
 			isa = PBXGroup;
 			children = (
 				3D65C916290B7D0000963439 /* PixelAlign.swift */,
 			);
 			path = Util;
-			sourceTree = "<group>";
-		};
-		3D8B1B2828F6907400207A48 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				3D8B1B2928F6908000207A48 /* KYLineChartDataSet.swift */,
-				3D8B1B2B28F693D600207A48 /* KYLineChartConfig.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		3D8B1B2D28F6970700207A48 /* Base */ = {
@@ -267,24 +241,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D65C90D290A7EE400963439 /* KYKLineChartDataSet.swift in Sources */,
+				04E007C22AE8AAD800D555AB /* CGMathExtension.swift in Sources */,
+				04E007BB2AE7C18C00D555AB /* KYChartContext.swift in Sources */,
 				3D41CA9028F511E500B4830B /* ViewController.swift in Sources */,
-				3D41CAA028F511F800B4830B /* KYBarChartView.swift in Sources */,
-				3D41CAA528F5131C00B4830B /* KYBarChartConfig.swift in Sources */,
-				3D41CAA328F512A000B4830B /* KYBarChartDataSet.swift in Sources */,
+				04E007C02AE7CF0500D555AB /* KYChartQuote.swift in Sources */,
+				04E007AE2AE7B97900D555AB /* KYLongPressIntercation.swift in Sources */,
+				04E007B22AE7B9DA00D555AB /* KYTapInteraction.swift in Sources */,
+				04FADDA32AE8C58E00D02BB6 /* KYGridChartRender.swift in Sources */,
+				04FADDA52AE8C5B100D02BB6 /* CGPathExtension.swift in Sources */,
+				04E007AC2AE7B0E400D555AB /* KYChartConfiguration.swift in Sources */,
 				3D65C917290B7D0000963439 /* PixelAlign.swift in Sources */,
-				3D65C914290B6DA700963439 /* KYKChartViewRender.swift in Sources */,
-				3D65C910290B6C7000963439 /* KYKLineChartConfig.swift in Sources */,
-				3D8B1B2A28F6908000207A48 /* KYLineChartDataSet.swift in Sources */,
-				3D65C912290B6D7A00963439 /* KYKChartView.swift in Sources */,
+				04E007B02AE7B9A300D555AB /* KYBinding.swift in Sources */,
+				04E007B42AE7BAE000D555AB /* KYChartLayout.swift in Sources */,
+				04E007BE2AE7CB0F00D555AB /* KYLineChartRender.swift in Sources */,
+				04E007B62AE7BE4800D555AB /* KYChartGroup.swift in Sources */,
 				3D41CA8C28F511E500B4830B /* AppDelegate.swift in Sources */,
+				04E007B92AE7C07F00D555AB /* KYChartRenderProtcol.swift in Sources */,
 				3D41CA8E28F511E500B4830B /* SceneDelegate.swift in Sources */,
-				3D8B1B2C28F693D600207A48 /* KYLineChartConfig.swift in Sources */,
-				3D41CAAD28F5177E00B4830B /* KYBarChartRender.swift in Sources */,
-				3D41CAB328F64F5500B4830B /* KYLineChartView.swift in Sources */,
+				04E007A82AE7A84400D555AB /* KYChartRenderView.swift in Sources */,
 				3D8B1B2F28F6971A00207A48 /* KYChartBaseView.swift in Sources */,
-				3D41CAA828F515C700B4830B /* KYBarChartHighLight.swift in Sources */,
-				3D41CAB528F65B2C00B4830B /* KYLineChartViewRender.swift in Sources */,
+				04E007AA2AE7AF0400D555AB /* KYChartDelegate.swift in Sources */,
 				3D41CAAB28F5163F00B4830B /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
