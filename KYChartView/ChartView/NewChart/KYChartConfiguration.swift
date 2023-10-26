@@ -10,5 +10,4 @@ import UIKit
 struct KYChartConfiguration {
     var width: CGFloat = 9
     var spacing: CGFloat = 2
-    var edgeInset: UIEdgeInsets = .zero
 }

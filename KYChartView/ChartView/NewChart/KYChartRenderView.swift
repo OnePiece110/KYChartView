@@ -30,14 +30,10 @@ class KYChartRenderView<Input: KYChartQuote>: UIScrollView {
         }
     }
     
-    var chartRender: KYChartGroup<Input> {
+    var chartRender: KYChartDescriptor<Input> {
         didSet {
-            oldValue.charts.forEach {
-                $0.tearDown(in: self)
-            }
-            chartRender.charts.forEach {
-                $0.setup(in: self)
-            }
+            updateDescriptor(from: oldValue, to: chartRender)
+            invalidateIntrinsicContentSize()
         }
     }
     
@@ -54,12 +50,14 @@ class KYChartRenderView<Input: KYChartQuote>: UIScrollView {
     
     public private(set) lazy var layout: KYChartLayout = .init(self)
     
-    init(chartRender: KYChartGroup<Input>) {
+    init(chartRender: KYChartDescriptor<Input>) {
         self.chartRender = chartRender
         super.init(frame: .zero)
         setup()
-        chartRender.charts.forEach {
-            $0.setup(in: self)
+        chartRender.groups.forEach { group in
+            group.charts.forEach {
+                $0.setup(in: self)
+            }
         }
     }
     
@@ -90,7 +88,7 @@ class KYChartRenderView<Input: KYChartQuote>: UIScrollView {
     
     private func updateContentSize() {
         contentSize = CGSize(width: layout.contentWidth(for: data),
-                             height: chartRender.height)
+                             height: chartRender.contentHeight)
     }
     
     private func setupInteractions() {
@@ -131,8 +129,8 @@ class KYChartRenderView<Input: KYChartQuote>: UIScrollView {
     private func redraw() {
         let visibleRange = layout.visibleRange()
         
-        let maxValue = data.max(by: { $0.value > $1.value })?.value ?? 0
-        let minValue = data.max(by: { $0.value < $1.value })?.value ?? 0
+        let maxValue = (data.max(by: { $0.value > $1.value })?.value ?? 0) * 0.5
+        let minValue = (data.max(by: { $0.value < $1.value })?.value ?? 0) * 1.5
         var context = KYChartContext(data: data, configuration: config, layout: layout, contentRect: .zero, visibleRange: visibleRange, extremePoint: (minValue, maxValue), longGestureIsEnd: longPressIntercation?.isEnd ?? true)
         
         context.selectedIndex = selectedIndex
@@ -145,10 +143,25 @@ class KYChartRenderView<Input: KYChartQuote>: UIScrollView {
             quoteIndex = context.visibleRange.endIndex - 1
         }
 
-        for group in chartRender.charts {
-            context.contentRect = layout.contentRectToDraw(visibleRange: visibleRange, y: config.edgeInset.top, height: chartRender.height - config.edgeInset.top - config.edgeInset.bottom)
-            group.render(in: self, context: context)
+        for (index, group) in chartRender.groups.enumerated() {
+            let (y, height) = chartRender.layoutInfoForGroup(at: index)
+            context.contentRect = layout.contentRectToDraw(visibleRange: visibleRange, y: y, height: height)
+            for item in group.charts {
+                item.render(in: self, context: context)
+            }
         }
+    }
+    
+    private func updateDescriptor(from lhs: KYChartDescriptor<Input>, to rhs: KYChartDescriptor<Input>) {
+        let renderers = rhs.renderers
+        let patches = lhs.rendererSet.patches(to: Set(renderers))
+        patches.deletions.forEach {
+            $0.tearDown(in: self)
+        }
+        patches.insertions.forEach {
+            $0.setup(in: self)
+        }
+        
     }
     
     private func setNeedRedraw() {
@@ -161,7 +174,7 @@ class KYChartRenderView<Input: KYChartQuote>: UIScrollView {
     }
     
     open var expectedHeight: CGFloat {
-        contentInset.top + contentInset.bottom + chartRender.height
+        contentInset.top + contentInset.bottom + chartRender.contentHeight
     }
     
     override open var contentInset: UIEdgeInsets {

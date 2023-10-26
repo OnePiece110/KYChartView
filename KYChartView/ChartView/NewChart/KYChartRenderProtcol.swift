@@ -42,3 +42,15 @@ struct KYAnyChartRenderer<Input: KYChartQuote> {
         _tearDown(view)
     }
 }
+
+extension KYAnyChartRenderer: Equatable {
+    public static func == (lhs: KYAnyChartRenderer<Input>, rhs: KYAnyChartRenderer<Input>) -> Bool {
+        lhs.base === rhs.base
+    }
+}
+
+extension KYAnyChartRenderer: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(ObjectIdentifier(base))
+    }
+}

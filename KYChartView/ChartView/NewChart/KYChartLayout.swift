@@ -38,7 +38,7 @@ struct KYChartLayout<Input: KYChartQuote> {
         let thunkWidth = configuration.width + configuration.spacing
         let minX = CGFloat(visibleRange.startIndex) * thunkWidth
         let maxX = CGFloat(visibleRange.endIndex - 1) * thunkWidth
-        return CGRect(x: minX, y: y, width: maxX - minX - configuration.edgeInset.left - configuration.edgeInset.right, height: height)
+        return CGRect(x: minX, y: y, width: maxX - minX, height: height)
     }
 }
 

@@ -45,6 +45,9 @@ class KYLineChartRender<Input: KYChartQuote>: KYChartRenderProtcol {
     
     func render(in view: KYChartRenderView<Input>, context: KYChartContext<Input>) {
         
+        let start = max(0, context.visibleRange.startIndex - 1)
+        let end = min(context.data.count, context.visibleRange.endIndex + 1)
+        
         if context.longGestureIsEnd {
             ringLayer.isHidden = false
             selectLineLayer.isHidden = true
@@ -55,7 +58,7 @@ class KYLineChartRender<Input: KYChartQuote>: KYChartRenderProtcol {
         
         var points = [CGPoint]()
         var selectPoint: CGPoint?
-        for idx in context.visibleRange {
+        for idx in start..<end {
             let data = context.data[idx]
             let point = CGPoint(x: context.layout.quoteMidX(at: idx), y: context.yOffset(for: data.value))
             if idx == context.selectedIndex {
@@ -67,7 +70,7 @@ class KYLineChartRender<Input: KYChartQuote>: KYChartRenderProtcol {
         lineLayer.path = CGMutablePath.smoothCurve(with: points, granularity: 0.3)
         
         if let point = selectPoint {
-            let ringPath = UIBezierPath(arcCenter: point, radius: context.configuration.width, startAngle: -CGFloat.pi / 2, endAngle: CGFloat.pi * 1.5, clockwise: true)
+            let ringPath = UIBezierPath(arcCenter: point, radius: 9/2, startAngle: -CGFloat.pi / 2, endAngle: CGFloat.pi * 1.5, clockwise: true)
             ringLayer.path = ringPath.cgPath
             
             let selectLinePath = CGMutablePath()
@@ -78,7 +81,7 @@ class KYLineChartRender<Input: KYChartQuote>: KYChartRenderProtcol {
         
         let circlePath = CGMutablePath()
         for point in points {
-            let path = UIBezierPath(arcCenter: point, radius: context.configuration.width / 2, startAngle: -CGFloat.pi / 2, endAngle: CGFloat.pi * 1.5, clockwise: true)
+            let path = UIBezierPath(arcCenter: point, radius: 9 / 2, startAngle: -CGFloat.pi / 2, endAngle: CGFloat.pi * 1.5, clockwise: true)
             circlePath.addPath(path.cgPath)
         }
         circleLayer.path = circlePath

@@ -25,7 +25,13 @@ class ViewController: UIViewController {
                 KYAnyChartRenderer(KYGridChartRender()),
                 KYAnyChartRenderer(KYLineChartRender())
             ])
-        let view = KYChartRenderView(chartRender: group)
+        let weekGroup = KYChartGroup<KXLineChartData>(
+            height: 16,
+            charts: [
+            KYAnyChartRenderer(KXWeekChartRender())
+        ])
+        let descriptor = KYChartDescriptor(groups: [weekGroup, group])
+        let view = KYChartRenderView(chartRender: descriptor)
         view.backgroundColor = .gray
         return view
     }()
@@ -37,7 +43,8 @@ class ViewController: UIViewController {
             charts: [
                 KYAnyChartRenderer(KXBubbleChartRender())
             ])
-        let view = KYChartRenderView(chartRender: group)
+        let descriptor = KYChartDescriptor(groups: [group])
+        let view = KYChartRenderView(chartRender: descriptor)
         view.backgroundColor = .white
         return view
     }()
@@ -46,19 +53,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(lineView)
-
-        lineView.frame = CGRectMake(10, 200, 210, 100)
+        lineView.frame = CGRectMake(10, 100, 210, lineView.intrinsicContentSize.height)
         let arr = arrayLineRandom()
-        lineView.config.spacing = (lineView.frame.width - lineView.config.width * CGFloat(arr.count)) / CGFloat(arr.count - 1)
-        lineView.config.edgeInset = .init(top: 4, left: 0, bottom: 4, right: 0)
+        lineView.config.width = lineView.frame.width / CGFloat(arr.count)
+        lineView.config.spacing = 0
+        lineView.frame = CGRectMake(10, 100, 210, lineView.intrinsicContentSize.height)
         lineView.reloadData(arr)
         
         view.addSubview(bubbleView)
-        bubbleView.frame = CGRectMake(10, 320, 210, 100)
+        bubbleView.frame = CGRectMake(10, 320, 210, lineView.intrinsicContentSize.height)
         bubbleView.config.width = 16
         let bubbleArr = arrayBubbleRandom()
         bubbleView.config.spacing = (bubbleView.frame.width - bubbleView.config.width * CGFloat(bubbleArr.count)) / CGFloat(bubbleArr.count - 1)
-        debugPrint(bubbleView.config.spacing)
+        bubbleView.frame = CGRectMake(10, 320, 210, bubbleView.intrinsicContentSize.height)
         bubbleView.reloadData(bubbleArr)
     }
 
