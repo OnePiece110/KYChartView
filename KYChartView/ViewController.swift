@@ -11,6 +11,10 @@ struct KXLineChartData: KYChartQuote {
     var value: CGFloat
 }
 
+struct KXBubbleChartData: KYChartQuote {
+    var value: CGFloat
+}
+
 class ViewController: UIViewController {
 
     var lineConfig = KYChartConfiguration()
@@ -25,17 +29,37 @@ class ViewController: UIViewController {
         view.backgroundColor = .gray
         return view
     }()
+    
+    var bubbleConfig = KYChartConfiguration()
+    lazy var bubbleView:KYChartRenderView<KXBubbleChartData> = {
+        let group = KYChartGroup<KXBubbleChartData>(
+            height: 100,
+            charts: [
+                KYAnyChartRenderer(KXBubbleChartRender())
+            ])
+        let view = KYChartRenderView(chartRender: group)
+        view.backgroundColor = .white
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(lineView)
 
-        lineView.frame = CGRectMake(10, 200, 210, 116)
-        lineView.contentInset = .init(top: 8, left: 0, bottom: 8, right: 0)
+        lineView.frame = CGRectMake(10, 200, 210, 100)
         let arr = arrayLineRandom()
-        lineView.config.spacing = (lineView.frame.width - lineConfig.width * CGFloat(arr.count)) / CGFloat(arr.count - 1)
+        lineView.config.spacing = (lineView.frame.width - lineView.config.width * CGFloat(arr.count)) / CGFloat(arr.count - 1)
+        lineView.config.edgeInset = .init(top: 4, left: 0, bottom: 4, right: 0)
         lineView.reloadData(arr)
+        
+        view.addSubview(bubbleView)
+        bubbleView.frame = CGRectMake(10, 320, 210, 100)
+        bubbleView.config.width = 16
+        let bubbleArr = arrayBubbleRandom()
+        bubbleView.config.spacing = (bubbleView.frame.width - bubbleView.config.width * CGFloat(bubbleArr.count)) / CGFloat(bubbleArr.count - 1)
+        debugPrint(bubbleView.config.spacing)
+        bubbleView.reloadData(bubbleArr)
     }
 
     private func arrayLineRandom() -> [KXLineChartData] {
@@ -49,5 +73,15 @@ class ViewController: UIViewController {
         return set
     }
 
+    private func arrayBubbleRandom() -> [KXBubbleChartData] {
+        var set = [KXBubbleChartData]()
+        let times = 7
+        for _ in 0..<times {
+            let number = Double.random(in: 1..<100)
+            set.append(KXBubbleChartData(value: number))
+//            set.data.append(KYLineChartData(yVal: number - 30))
+        }
+        return set
+    }
 }
 

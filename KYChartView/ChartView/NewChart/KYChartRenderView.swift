@@ -131,7 +131,9 @@ class KYChartRenderView<Input: KYChartQuote>: UIScrollView {
     private func redraw() {
         let visibleRange = layout.visibleRange()
         
-        var context = KYChartContext(data: data, configuration: config, layout: layout, contentRect: .zero, visibleRange: visibleRange, longGestureIsEnd: longPressIntercation?.isEnd ?? true)
+        let maxValue = data.max(by: { $0.value > $1.value })?.value ?? 0
+        let minValue = data.max(by: { $0.value < $1.value })?.value ?? 0
+        var context = KYChartContext(data: data, configuration: config, layout: layout, contentRect: .zero, visibleRange: visibleRange, extremePoint: (minValue, maxValue), longGestureIsEnd: longPressIntercation?.isEnd ?? true)
         
         context.selectedIndex = selectedIndex
         if let selectedIndex = selectedIndex {
@@ -144,7 +146,7 @@ class KYChartRenderView<Input: KYChartQuote>: UIScrollView {
         }
 
         for group in chartRender.charts {
-            context.contentRect = layout.contentRectToDraw(visibleRange: visibleRange, y: 0, height: chartRender.height)
+            context.contentRect = layout.contentRectToDraw(visibleRange: visibleRange, y: config.edgeInset.top, height: chartRender.height - config.edgeInset.top - config.edgeInset.bottom)
             group.render(in: self, context: context)
         }
     }

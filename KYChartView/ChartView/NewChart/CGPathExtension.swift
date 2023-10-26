@@ -8,7 +8,7 @@
 import UIKit
 
 extension CGPath {
-    static func lineSegments(with points: [CGPoint]) -> CGPath {
+    static func lineSegments(with points: [CGPoint]) -> CGMutablePath {
         let path = CGMutablePath()
         guard let first = points.first else { return path }
         path.move(to: first)
@@ -21,7 +21,7 @@ extension CGPath {
             .normalized ?? CGVector(dx: 1, dy: 0)
     }
     
-    static func smoothCurve(with points: [CGPoint], granularity: CGFloat) -> CGPath {
+    static func smoothCurve(with points: [CGPoint], granularity: CGFloat) -> CGMutablePath {
         let path = CGMutablePath()
         let count = points.count
         guard count > 1 else { return path }

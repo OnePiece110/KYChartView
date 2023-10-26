@@ -9,21 +9,21 @@ import UIKit
 
 class KYLineChartRender<Input: KYChartQuote>: KYChartRenderProtcol {
     
-    typealias Input = Input
-    
     let lineLayer = CAShapeLayer()
     let circleLayer = CAShapeLayer()
     let ringLayer = CAShapeLayer()
     let selectLineLayer = CAShapeLayer()
+    let gradientLayer = KYGradientLayer()
     
     func setup(in view: KYChartRenderView<Input>) {
+        view.layer.addSublayer(gradientLayer)
         view.layer.addSublayer(lineLayer)
         view.layer.addSublayer(circleLayer)
         view.layer.addSublayer(selectLineLayer)
         view.layer.addSublayer(ringLayer)
         
         lineLayer.fillColor = UIColor.clear.cgColor
-        lineLayer.strokeColor = UIColor.gray.cgColor
+        lineLayer.strokeColor = UIColor.red.cgColor
         lineLayer.lineWidth = 1
         
         circleLayer.fillColor = UIColor.green.cgColor
@@ -35,6 +35,11 @@ class KYLineChartRender<Input: KYChartQuote>: KYChartRenderProtcol {
         selectLineLayer.fillColor = UIColor.clear.cgColor
         selectLineLayer.strokeColor = UIColor.orange.cgColor
         selectLineLayer.lineWidth = 1
+        
+        gradientLayer.gradientLayer.locations = [0, 1]
+        gradientLayer.gradientLayer.colors = [UIColor.yellow.cgColor, UIColor.white.cgColor]
+        gradientLayer.gradientLayer.startPoint = .init(x: 0.5, y: 0)
+        gradientLayer.gradientLayer.endPoint = .init(x: 0.5, y: 1)
         
     }
     
@@ -48,26 +53,20 @@ class KYLineChartRender<Input: KYChartQuote>: KYChartRenderProtcol {
             selectLineLayer.isHidden = false
         }
         
-        let max = view.data.max(by: { $0.value > $1.value })?.value ?? 0
-        let min = view.data.max(by: { $0.value < $1.value })?.value ?? 0
-        let ep = max - min
-        let space = context.configuration.spacing
-        
         var points = [CGPoint]()
         var selectPoint: CGPoint?
         for idx in context.visibleRange {
             let data = context.data[idx]
-            let point = CGPoint(x: CGFloat(idx) * (space + context.configuration.width) + context.configuration.width / 2 , y: context.configuration.width/2 + ((data.value - min) / ep) * (context.contentRect.height - context.configuration.width))
+            let point = CGPoint(x: context.layout.quoteMidX(at: idx), y: context.yOffset(for: data.value))
             if idx == context.selectedIndex {
                 selectPoint = point
             }
             points.append(point)
         }
         
-        lineLayer.path = .smoothCurve(with: points, granularity: 0.05)
+        lineLayer.path = CGMutablePath.smoothCurve(with: points, granularity: 0.3)
         
         if let point = selectPoint {
-            
             let ringPath = UIBezierPath(arcCenter: point, radius: context.configuration.width, startAngle: -CGFloat.pi / 2, endAngle: CGFloat.pi * 1.5, clockwise: true)
             ringLayer.path = ringPath.cgPath
             
@@ -83,12 +82,19 @@ class KYLineChartRender<Input: KYChartQuote>: KYChartRenderProtcol {
             circlePath.addPath(path.cgPath)
         }
         circleLayer.path = circlePath
+        
+        CATransaction.begin();
+        CATransaction.setDisableActions(true)
+        gradientLayer.update(with: context)
+        CATransaction.commit();
     }
     
     func tearDown(in view: KYChartRenderView<Input>) {
         lineLayer.removeFromSuperlayer()
         circleLayer.removeFromSuperlayer()
         ringLayer.removeFromSuperlayer()
+        selectLineLayer.removeFromSuperlayer()
+        gradientLayer.removeFromSuperlayer()
     }
     
 }

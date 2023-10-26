@@ -23,5 +23,24 @@ struct KYChartContext<Input: KYChartQuote> {
     /// 当前触摸显示的点
     public var indicatorPosition: CGPoint?
     
+    public var extremePoint: (min: CGFloat, max: CGFloat)
+    
     var longGestureIsEnd: Bool
+}
+
+extension KYChartContext {
+    
+    func yOffset(for value: CGFloat) -> CGFloat {
+        let height = contentRect.height
+        let minY = contentRect.minY
+        let peak = extremePoint.max - extremePoint.min
+        return height - height * (value - extremePoint.min) / peak + minY
+    }
+
+    func value(forY y: CGFloat) -> CGFloat {
+        let peak = extremePoint.max - extremePoint.min
+        let height = contentRect.height
+        let maxY = contentRect.maxY
+        return (maxY - y) * peak / height + extremePoint.min
+    }
 }

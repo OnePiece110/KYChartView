@@ -20,15 +20,11 @@ class KYGridChartRender<Input: KYChartQuote>: KYChartRenderProtcol {
     }
     
     func render(in view: KYChartRenderView<Input>, context: KYChartContext<Input>) {
-        let max = view.data.max(by: { $0.value > $1.value })?.value ?? 0
-        let min = view.data.max(by: { $0.value < $1.value })?.value ?? 0
-        let ep = max - min
-        let space = context.configuration.spacing
-        
         var points = [CGPoint]()
         for idx in context.visibleRange {
             let data = context.data[idx]
-            points.append(.init(x: CGFloat(idx) * (space + context.configuration.width) + context.configuration.width / 2 , y: context.configuration.width/2 + ((data.value - min) / ep) * (context.contentRect.height - context.configuration.width)))
+            let point = CGPoint(x: context.layout.quoteMidX(at: idx), y: context.yOffset(for: data.value))
+            points.append(point)
         }
         
         let gridPath = CGMutablePath()

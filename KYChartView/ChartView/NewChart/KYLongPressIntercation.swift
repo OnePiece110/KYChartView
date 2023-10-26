@@ -10,7 +10,7 @@ import UIKit
 class KYLongPressIntercation: NSObject, UIInteraction {
     weak var view: UIView?
     private lazy var gesture: UILongPressGestureRecognizer = .init(target: self, action: #selector(handleLongPress(gesture:)))
-    private(set) var isEnd = false
+    private(set) var isEnd = true
     
     private var binding: KYBinding<CGPoint>
 

@@ -22,6 +22,8 @@
 		04E007C22AE8AAD800D555AB /* CGMathExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E007C12AE8AAD800D555AB /* CGMathExtension.swift */; };
 		04FADDA32AE8C58E00D02BB6 /* KYGridChartRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FADDA22AE8C58E00D02BB6 /* KYGridChartRender.swift */; };
 		04FADDA52AE8C5B100D02BB6 /* CGPathExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FADDA42AE8C5B100D02BB6 /* CGPathExtension.swift */; };
+		04FADDA72AE9088400D02BB6 /* KYGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FADDA62AE9088400D02BB6 /* KYGradientLayer.swift */; };
+		04FADDA92AE9236900D02BB6 /* KXBubbleChartRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FADDA82AE9236900D02BB6 /* KXBubbleChartRender.swift */; };
 		3D41CA8C28F511E500B4830B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41CA8B28F511E500B4830B /* AppDelegate.swift */; };
 		3D41CA8E28F511E500B4830B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41CA8D28F511E500B4830B /* SceneDelegate.swift */; };
 		3D41CA9028F511E500B4830B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41CA8F28F511E500B4830B /* ViewController.swift */; };
@@ -49,6 +51,8 @@
 		04E007C12AE8AAD800D555AB /* CGMathExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGMathExtension.swift; sourceTree = "<group>"; };
 		04FADDA22AE8C58E00D02BB6 /* KYGridChartRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYGridChartRender.swift; sourceTree = "<group>"; };
 		04FADDA42AE8C5B100D02BB6 /* CGPathExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPathExtension.swift; sourceTree = "<group>"; };
+		04FADDA62AE9088400D02BB6 /* KYGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYGradientLayer.swift; sourceTree = "<group>"; };
+		04FADDA82AE9236900D02BB6 /* KXBubbleChartRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KXBubbleChartRender.swift; sourceTree = "<group>"; };
 		3D41CA8828F511E500B4830B /* KYChartView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KYChartView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D41CA8B28F511E500B4830B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D41CA8D28F511E500B4830B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 			children = (
 				04E007BD2AE7CB0F00D555AB /* KYLineChartRender.swift */,
 				04FADDA22AE8C58E00D02BB6 /* KYGridChartRender.swift */,
+				04FADDA62AE9088400D02BB6 /* KYGradientLayer.swift */,
+				04FADDA82AE9236900D02BB6 /* KXBubbleChartRender.swift */,
 			);
 			path = LineChart;
 			sourceTree = "<group>";
@@ -255,11 +261,13 @@
 				04E007B42AE7BAE000D555AB /* KYChartLayout.swift in Sources */,
 				04E007BE2AE7CB0F00D555AB /* KYLineChartRender.swift in Sources */,
 				04E007B62AE7BE4800D555AB /* KYChartGroup.swift in Sources */,
+				04FADDA92AE9236900D02BB6 /* KXBubbleChartRender.swift in Sources */,
 				3D41CA8C28F511E500B4830B /* AppDelegate.swift in Sources */,
 				04E007B92AE7C07F00D555AB /* KYChartRenderProtcol.swift in Sources */,
 				3D41CA8E28F511E500B4830B /* SceneDelegate.swift in Sources */,
 				04E007A82AE7A84400D555AB /* KYChartRenderView.swift in Sources */,
 				3D8B1B2F28F6971A00207A48 /* KYChartBaseView.swift in Sources */,
+				04FADDA72AE9088400D02BB6 /* KYGradientLayer.swift in Sources */,
 				04E007AA2AE7AF0400D555AB /* KYChartDelegate.swift in Sources */,
 				3D41CAAB28F5163F00B4830B /* Extension.swift in Sources */,
 			);
